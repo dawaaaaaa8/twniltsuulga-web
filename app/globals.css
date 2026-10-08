@@ -1,26 +1,121 @@
 @import "tailwindcss";
 
+/* ============================================
+   Design tokens
+   ============================================ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ink: #1b1259;
+  --indigo: #3a27b0;
+  --violet: #7a45c8;
+  --cyan: #2fb4e0;
+  --paper: #f6f5fb;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Colors */
+  --color-ink: var(--ink);
+  --color-indigo: var(--indigo);
+  --color-violet: var(--violet);
+  --color-cyan: var(--cyan);
+  --color-paper: var(--paper);
+
+  /* Fonts — next/font-оос ирэх CSS хувьсагчид */
+  --font-display: var(--font-unbounded), system-ui, sans-serif;
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+
+  /* Animations */
+  --animate-fade-in: fadeIn 0.4s ease-out backwards;
+  --animate-assemble: assemble 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ============================================
+   Keyframes (root түвшинд, @layer дотор биш)
+   ============================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
+@keyframes assemble {
+  from {
+    opacity: 0;
+    transform: translate(var(--dx, 0), var(--dy, 0));
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+/* ============================================
+   Base
+   ============================================ */
+html {
+  scroll-behavior: smooth;
+  /* Sticky header-ийн өндрийг тооцож anchor offset өгнө */
+  scroll-padding-top: 5rem;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Сонголт хийх өнгө */
+::selection {
+  background: var(--cyan);
+  color: var(--ink);
+}
+
+/* ============================================
+   Custom utilities
+   ============================================ */
+@utility grid-bg {
+  background-color: var(--indigo);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(180deg, #3a27b0 0%, #6a3cc0 70%, #a95cd0 100%);
+  background-size: 32px 32px, 32px 32px, 100% 100%;
+}
+
+/* Hero-ийн пиксел блокууд */
+.px {
+  position: absolute;
+  background: var(--cyan);
+  animation: var(--animate-assemble);
+  animation-delay: var(--delay, 0s);
+  will-change: transform, opacity;
+}
+
+/* ============================================
+   Accessibility — reduced motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .px {
+    animation: none;
+    opacity: 1;
+  }
 }

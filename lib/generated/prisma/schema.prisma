@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+// ============================================
+// Project Request — захиалгын хүсэлт
+// ============================================
+model ProjectRequest {
+  id        String @id @default(cuid())
+  projectId String @unique // BBD-2026-XXXXX
+  status    String @default("NEW")
+  // NEW | REVIEWING | CONTACTED | PROPOSAL_SENT | CONTRACTED | REJECTED
+
+  // Step 1 — Холбоо барих
+  name     String
+  email    String
+  phone    String
+  company  String?
+  howFound String?
+
+  // Step 2 — Төслийн тухай
+  projectType String
+  platforms   String // JSON array
+  features    String // JSON array
+  description String
+  hasDesign   String?
+  hasExisting String?
+  existingUrl String?
+
+  // Step 3 — Төсөв, хугацаа
+  budget      String
+  timeline    String
+  maintenance String
+  startDate   String?
+  notes       String?
+
+  // Мета
+  ipAddress String?
+  userAgent String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Notes (дотоод)
+  internalNotes String?
+
+  @@index([status])
+  @@index([createdAt])
+  @@index([email])
+}
+
+// ============================================
+// Admin Users (энгийн password-based)
+// ============================================
+model AdminUser {
+  id        String    @id @default(cuid())
+  email     String    @unique
+  name      String
+  password  String // bcrypt hash
+  role      String    @default("ADMIN") // ADMIN | VIEWER
+  createdAt DateTime  @default(now())
+  lastLogin DateTime?
+}
+
+// ============================================
+// Activity Log
+// ============================================
+model ActivityLog {
+  id        String   @id @default(cuid())
+  adminId   String?
+  action    String // STATUS_CHANGED | NOTE_ADDED | LOGIN
+  targetId  String?
+  details   String?
+  createdAt DateTime @default(now())
+}
