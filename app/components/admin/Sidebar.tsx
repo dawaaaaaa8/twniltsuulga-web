@@ -3,18 +3,27 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const NAV = [
+// ⭐ Type тодорхойлно
+type NavItem = {
+  href: string;
+  label: string;
+  icon: string;
+  exact?: boolean;
+  soon?: boolean;
+};
+
+const NAV: NavItem[] = [
   { href: "/admin", label: "Dashboard", icon: "📊", exact: true },
   { href: "/admin/requests", label: "Захиалгууд", icon: "📋" },
   { href: "/admin/clients", label: "Харилцагчид", icon: "👥", soon: true },
   { href: "/admin/analytics", label: "Статистик", icon: "📈", soon: true },
   { href: "/admin/settings", label: "Тохиргоо", icon: "⚙️", soon: true },
-] as const;
+];
 
 export function Sidebar() {
   const pathname = usePathname();
 
-  // ⭐ Login хуудсанд sidebar харуулахгүй
+  // Login хуудсанд sidebar харуулахгүй
   if (pathname === "/admin/login") return null;
 
   return (
@@ -73,7 +82,7 @@ export function Sidebar() {
           })}
         </nav>
 
-        {/* Bottom — Back to site */}
+        {/* Bottom */}
         <div className="border-t border-white/10 p-3">
           <Link
             href="/"
