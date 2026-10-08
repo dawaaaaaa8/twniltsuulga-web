@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState, useTransition } from "react";
-import { TECH, TECH_STATS } from "../lib/data";
+import { TECH, TECH_STATS } from "../../lib/data";
 import { Reveal } from "./ui/Reveal";
 
 export function TechStack() {

@@ -1,4 +1,4 @@
-import { PRICING } from "../lib/data";
+import { PRICING } from "../../lib/data";
 import { Reveal } from "./ui/Reveal";
 import { Section } from "./ui/Section";
 

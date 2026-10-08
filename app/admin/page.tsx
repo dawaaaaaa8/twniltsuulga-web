@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { prisma } from "../lib/prisma";
-import { getAdmin } from "../lib/auth";
+import { prisma } from "../../lib/prisma";
+import { getAdmin } from "../../lib/auth";
 import { StatCard } from "../components/admin/StatCard";
 import { StatusBadge } from "../components/admin/StatusBadge";
 import { EmptyState } from "../components/admin/EmptyState";

@@ -1,4 +1,4 @@
-import { TESTIMONIALS } from "../lib/data";
+import { TESTIMONIALS } from "../../lib/data";
 import { Reveal } from "./ui/Reveal";
 
 export function Testimonials() {

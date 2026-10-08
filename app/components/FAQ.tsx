@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FAQ as FAQ_DATA } from "../lib/data";
+import { FAQ as FAQ_DATA } from "../../lib/data";
 import { Reveal } from "./ui/Reveal";
 import { Section } from "./ui/Section";
 

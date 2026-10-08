@@ -1,9 +1,8 @@
 "use server";
 
-import { prisma } from "../lib/prisma";
-import { sendProjectEmail } from "../lib/email";
-import { sendTelegramNotification } from "../lib/telegram";
-
+import { prisma } from "@/lib/prisma";
+import { sendProjectEmail } from "@/lib/email";
+import { sendTelegramNotification } from "@/lib/telegram";
 export type ProjectSubmission = {
   name: string;
   email: string;

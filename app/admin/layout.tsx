@@ -1,6 +1,6 @@
 import { Sidebar } from "../components/admin/Sidebar";
 import { Topbar } from "../components/admin/Topbar";
-import { getAdmin } from "../lib/auth";
+import { getAdmin } from "../../lib/auth";
 
 export default async function AdminLayout({
   children,

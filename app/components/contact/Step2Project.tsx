@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { FEATURES, PLATFORMS, PROJECT_TYPES } from "../../lib/discovery";
+import { FEATURES, PLATFORMS, PROJECT_TYPES } from "../../../lib/discovery";
 import { Field } from "./Step1Contact";
 import type { FormData } from "./ProjectWizard";
 

@@ -1,4 +1,4 @@
-import { TRUST_STATS } from "../lib/data";
+import { TRUST_STATS } from "../../lib/data";
 
 export function TrustBar() {
   return (

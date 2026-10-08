@@ -1,4 +1,4 @@
-import { CONTACT, NAV_LINKS } from "../lib/data";
+import { CONTACT, NAV_LINKS } from "../../lib/data";
 
 export function Footer() {
   return (

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { HOW_FOUND } from "../../lib/discovery";
+import { HOW_FOUND } from "../../../lib/discovery";
 import type { FormData } from "./ProjectWizard";
 
 type Props = {

@@ -5,7 +5,7 @@ import {
   BUDGET_RANGES,
   MAINTENANCE_OPTIONS,
   TIMELINES,
-} from "../../lib/discovery";
+} from "../../../lib/discovery";
 import type { FormData } from "./ProjectWizard";
 
 type Props = {

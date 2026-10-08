@@ -6,7 +6,7 @@ import {
   PORTFOLIO_CATEGORIES,
   TECH_ICONS,
   type PortfolioCategory,
-} from "../lib/data";
+} from "../../lib/data";
 import { Reveal } from "./ui/Reveal";
 
 export function Portfolio() {

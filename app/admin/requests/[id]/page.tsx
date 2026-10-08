@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
-import { prisma } from "../../../lib/prisma";
-import { getAdmin } from "../../../lib/auth";
+import { prisma } from "../../../../lib/prisma";
+import { getAdmin } from "../../../../lib/auth";
 import { StatusBadge, STATUS_LIST, getStatusLabel } from "../../../components/admin/StatusBadge";
 
 async function updateStatus(formData: FormData) {

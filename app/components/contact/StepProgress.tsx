@@ -1,6 +1,6 @@
 "use client";
 
-import { WIZARD_STEPS } from "../../lib/discovery";
+import { WIZARD_STEPS } from "../../../lib/discovery";
 
 type Props = {
   current: number;

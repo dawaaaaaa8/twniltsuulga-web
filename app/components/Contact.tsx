@@ -1,4 +1,4 @@
-import { CONTACT } from "../lib/data";
+import { CONTACT } from "../../lib/data";
 import { ProjectWizard } from "./contact/ProjectWizard";
 import { Reveal } from "./ui/Reveal";
 

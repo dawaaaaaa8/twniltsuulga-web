@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { CONTACT, PIXELS } from "../lib/data";
+import { CONTACT, PIXELS } from "../../lib/data";
 
 export function Hero() {
   return (

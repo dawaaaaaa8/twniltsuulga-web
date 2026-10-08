@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { NAV_LINKS } from "../lib/data";
+import { NAV_LINKS } from "../../lib/data";
 
 export function Header() {
   const [open, setOpen] = useState(false);

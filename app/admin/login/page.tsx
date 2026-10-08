@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
-import { prisma } from "../../lib/prisma";
-import { setSession, verifyPassword, getAdmin } from "../../lib/auth";
+import { prisma } from "../../../lib/prisma";
+import { setSession, verifyPassword, getAdmin } from "../../../lib/auth";
 
 async function login(formData: FormData) {
   "use server";
